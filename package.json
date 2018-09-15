@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/xumes/chuck-norris-backend/issues"
   },
-  "homepage": "https://github.com/xumes/chuck-norris-backend#readme"
+  "homepage": "https://github.com/xumes/chuck-norris-backend#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
