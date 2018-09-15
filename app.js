@@ -1,4 +1,5 @@
 const express = require('express')
+const axios = require('axios')
 
 const app = express()
 
@@ -33,8 +34,18 @@ const oCara = {
         cargo: 'adv'
 }
 
-app.get('le-piada', (req, res) => {
-    res.send('Aguarde que vamos implementar a função que le uma piada nova')
+app.get('/le-piada', (req, res) => {
+    axios
+        .get('https://api.chucknorris.io/jokes/random')
+        .then((resultado) => {
+            console.log(resultado.data)
+            res.send(resultado.data.value)
+        })
+        .catch((err) => {
+            console.log(err)
+            res.send(resultado)
+        })
+    
 })
 
 app.get('/', (req, res) => {
