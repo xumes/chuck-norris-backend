@@ -43,7 +43,7 @@ app.get('/le-piada', (req, res) => {
         })
         .catch((err) => {
             console.log(err)
-            res.send(resultado)
+            res.send(err)
         })
     
 })
