@@ -1,0 +1,25 @@
+{
+  "name": "chuck-norris",
+  "version": "1.0.0",
+  "description": "Sistema que retorna piadas sobre Chuck Norris",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xumes/chuck-norris-backend.git"
+  },
+  "keywords": [
+    "chuck",
+    "norris",
+    "node.js",
+    "backend"
+  ],
+  "author": "Reginaldo Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xumes/chuck-norris-backend/issues"
+  },
+  "homepage": "https://github.com/xumes/chuck-norris-backend#readme"
+}
