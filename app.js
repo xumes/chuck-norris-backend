@@ -33,6 +33,10 @@ const oCara = {
         cargo: 'adv'
 }
 
+app.get('le-piada', (req, res) => {
+    res.send('Aguarde que vamos implementar a função que le uma piada nova')
+})
+
 app.get('/', (req, res) => {
     res.send("Home Page")
 })
