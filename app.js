@@ -1,10 +1,19 @@
 const express = require('express')
 const axios = require('axios')
+const tradutor = require('watson-developer-cloud/language-translator/v3')
+const cors = require('cors');
 
 const app = express()
 
+app.use(cors())
+
 const hostname = '127.0.0.1';
 const port = 3000
+
+const chave = '7rKW8F_sCn3grtS35sIn38XS8P4FS5KzkUvCHBWLlzwK'
+const url = 'https://gateway.watsonplatform.net/language-translator/api'
+
+
 
 const listaClientes = [
     {
@@ -31,8 +40,38 @@ const listaClientes = [
 
 const oCara = {
     nome: 'Robinson',
-        cargo: 'adv'
+    cargo: 'adv'
 }
+
+app.get('/traduz', (req, res) => {
+    var languageTranslator = new tradutor({
+        version: '2018-05-01',
+        iam_apikey: chave,
+        url: url
+    });
+
+    const parameters = {
+        text: req.query.piada,
+        source: 'en',
+        target: 'pt'
+    };
+
+    languageTranslator.translate(
+        parameters,
+        function (error, response) {
+            if (error){
+                console.log(error)
+                res.send(error)
+            }
+            else {
+                console.log(JSON.stringify(response, null, 2));
+                res.send(response)
+            }
+        }
+    );
+
+
+})
 
 app.get('/le-piada', (req, res) => {
     axios
@@ -45,7 +84,7 @@ app.get('/le-piada', (req, res) => {
             console.log(err)
             res.send(err)
         })
-    
+
 })
 
 app.get('/', (req, res) => {
